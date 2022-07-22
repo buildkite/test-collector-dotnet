@@ -52,6 +52,8 @@ module Api =
         let _ = client.DefaultRequestHeaders.Authorization <- new AuthenticationHeaderValue("Token", config.apiToken)
         let payloads = Payload.IntoBatches(payload, config.batchSize)
 
+        printf "Sending test analytics data to Buildkite..."
+
         let task = task {
             for payload in payloads do
                 let task = submitBatch (payload, client)
@@ -59,3 +61,5 @@ module Api =
                 ()
         }
         task.Wait()
+
+        printfn " done."
