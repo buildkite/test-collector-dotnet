@@ -2,7 +2,7 @@ module TimingTests
 
 open System
 open Xunit
-open BuildkiteTestAnalytics
+open Buildkite.TestAnalytics.Common
 open System.Threading
 
 [<Fact>]

@@ -2,7 +2,7 @@ module TracingTests
 
 open System
 open Xunit
-open BuildkiteTestAnalytics
+open Buildkite.TestAnalytics.Common
 
 let rand = Random()
 

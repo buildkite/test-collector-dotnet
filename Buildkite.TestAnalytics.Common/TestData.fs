@@ -1,4 +1,4 @@
-namespace BuildkiteTestAnalytics
+namespace Buildkite.TestAnalytics.Common
 
 /// Deals with data related to individual tests.
 module TestData =

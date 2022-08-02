@@ -2,10 +2,7 @@
 
 The official .NET adapter for [Buildkite Test Analytics](https://buildkite.com/test-analytics) which collects information about your tests.
 
-⚒ **Supported test frameworks:** Xunit.
-
-📦 **Supported CI systems:** Buildkite, GitHub Actions, CircleCI, and others via the `BUILDKITE_ANALYTICS_*` environment variables.
-
+This package provides the XUnit test runner integration for the Buildkite Test Analytics product.
 
 ## 👉 Installing
 

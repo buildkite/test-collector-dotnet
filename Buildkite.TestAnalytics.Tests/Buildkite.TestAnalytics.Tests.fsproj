@@ -24,8 +24,8 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BuildkiteTestAnalytics\BuildkiteTestAnalytics.fsproj" />
-    <ProjectReference Include="..\BuildkiteTestAnalytics.XUnitCollector\BuildkiteTestAnalytics.XUnitCollector.fsproj" />
+    <ProjectReference Include="..\Buildkite.TestAnalytics.Common\Buildkite.TestAnalytics.Common.fsproj" />
+    <ProjectReference Include="..\Buildkite.TestAnalytics.Xunit\Buildkite.TestAnalytics.Xunit.fsproj" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="xunit.runner.json" CopyToOutputDirectory="PreserveNewest" />

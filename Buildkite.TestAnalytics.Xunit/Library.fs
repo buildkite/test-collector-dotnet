@@ -1,10 +1,10 @@
-﻿namespace BuildkiteTestAnalytics.XUnitCollector
+﻿namespace Buildkite.TestAnalytics.Xunit
 
 /// The Xunit plugin for Buildkite Test Analytics
 module Sink =
   open Xunit
   open Xunit.Abstractions
-  open BuildkiteTestAnalytics
+  open Buildkite.TestAnalytics.Common
   open System
   open System.Security.Cryptography
 

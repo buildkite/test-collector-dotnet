@@ -3,7 +3,7 @@ module PayloadTests
 open System
 open System.Collections.Generic
 open Xunit
-open BuildkiteTestAnalytics
+open Buildkite.TestAnalytics.Common
 
 let getEnvVarFactory (env: Map<string, string>) : (string -> string) =
     (fun key ->

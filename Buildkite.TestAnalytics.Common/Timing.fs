@@ -1,4 +1,4 @@
-namespace BuildkiteTestAnalytics
+namespace Buildkite.TestAnalytics.Common
 
 open System
 

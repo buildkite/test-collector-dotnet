@@ -1,9 +1,9 @@
-namespace BuildkiteTestAnalytics
+namespace Buildkite.TestAnalytics.Common
 
 /// Support for storing trace information
 module Tracing =
     open System.Collections.Generic
-    open BuildkiteTestAnalytics.Timing
+    open Buildkite.TestAnalytics.Common.Timing
 
     /// Allowed section types
     type public Section =

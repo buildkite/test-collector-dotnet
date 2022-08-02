@@ -2,7 +2,7 @@ module TestDataTests
 
 open System
 open Xunit
-open BuildkiteTestAnalytics
+open Buildkite.TestAnalytics.Common
 
 let rand = Random()
 
@@ -15,10 +15,10 @@ let fakeSpan () =
 [<Fact>]
 let ``Init creates a new test`` () =
     let id = Guid.NewGuid().ToString()
-    let scope = "BuildkiteTestAnalytics.Tests"
+    let scope = "Buildkite.TestAnalytics.Tests"
     let name = "Init creates a new test"
-    let identifier = "BuildkiteTestAnalytics.TestDataTests.Init creates a new test"
-    let location = "BuildkiteTestAnalytics.TestDataTests/TestDataTests.fs: line 8"
+    let identifier = "Buildkite.TestAnalytics.TestDataTests.Init creates a new test"
+    let location = "Buildkite.TestAnalytics.TestDataTests/TestDataTests.fs: line 8"
     let fileName = "TestDataTests.fs"
 
     let testData =

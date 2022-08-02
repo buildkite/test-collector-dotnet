@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+ <Authors>Buildkite</Authors>
+    <Company>Buildkite</Company>
+    <Copyright>Copyright (c) 2022 Buildkite</Copyright>
+    <Description>The official .NET adapter for Buildkite Test Analytics which collects information about your tests: API integration</Description>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>Buildkite.TestAnalytics.Common</PackageId>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/buildkite/test-collector-dotnet</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageTags>test,testing,analytics,buildkite</PackageTags>
+    <RepositoryUrl>https://github.com/buildkite/test-collector-dotnet</RepositoryUrl>
+    <RespositoryType>git</RespositoryType>
+    <TargetFramework>net6.0</TargetFramework>
+    <Version>0.1.0</Version>
+    <IsPackable>true</IsPackable>  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Timing.fs" />
+    <Compile Include="Tracing.fs" />
+    <Compile Include="TestData.fs" />
+    <Compile Include="Payload.fs" />
+    <Compile Include="Api.fs" />
+    <None Include="README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+</Project>

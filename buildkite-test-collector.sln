@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "BuildkiteTestAnalytics", "BuildkiteTestAnalytics\BuildkiteTestAnalytics.fsproj", "{B772CFD1-B2CA-4401-B084-763E859196E7}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Buildkite.TestAnalytics.Xunit", "Buildkite.TestAnalytics.Xunit\Buildkite.TestAnalytics.Xunit.fsproj", "{90176359-FFD7-4F14-82BA-9B8C9BAC3836}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "BuildkiteTestAnalytics.Tests", "BuildkiteTestAnalytics.Tests\BuildkiteTestAnalytics.Tests.fsproj", "{AEB8068B-9334-4104-811B-12288E6C19EB}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Buildkite.TestAnalytics.Common", "Buildkite.TestAnalytics.Common\Buildkite.TestAnalytics.Common.fsproj", "{B772CFD1-B2CA-4401-B084-763E859196E7}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "BuildkiteTestAnalytics.XUnitCollector", "BuildkiteTestAnalytics.XUnitCollector\BuildkiteTestAnalytics.XUnitCollector.fsproj", "{90176359-FFD7-4F14-82BA-9B8C9BAC3836}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Buildkite.TestAnalytics.Tests", "Buildkite.TestAnalytics.Tests\Buildkite.TestAnalytics.Tests.fsproj", "{AEB8068B-9334-4104-811B-12288E6C19EB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
