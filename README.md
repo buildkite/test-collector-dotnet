@@ -19,7 +19,7 @@ $ dotnet add package Buildkite.TestAnalytics.Xunit
 
 3. Set up your API token
 
-Add the `BUIDLKITE_ANALYTICS_TOKEN` environment variable to your build system's environment.
+Add the `BUILDKITE_ANALYTICS_TOKEN` environment variable to your build system's environment.
 
 4. Run your tests
 

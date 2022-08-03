@@ -14,7 +14,7 @@
     <RepositoryUrl>https://github.com/buildkite/test-collector-dotnet</RepositoryUrl>
     <RespositoryType>git</RespositoryType>
     <TargetFramework>net6.0</TargetFramework>
-    <Version>0.1.0</Version>
+    <Version>0.1.1</Version>
     <IsPackable>true</IsPackable>  </PropertyGroup>
   <ItemGroup>
     <Compile Include="Timing.fs" />
