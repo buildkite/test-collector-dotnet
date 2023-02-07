@@ -5,7 +5,6 @@ open System
 /// The main data storage for test analytics data.
 module Payload =
     open Newtonsoft.Json
-
     /// Stores information about the detected runtime environment.
     type RuntimeEnvironment =
         { Ci: string
@@ -15,7 +14,9 @@ module Payload =
           Branch: string option
           CommitSha: string option
           Message: string option
-          Url: string option }
+          Url: string option
+          Collector: string
+          Version: string }
 
     /// Stores information about the test suite and it's results.
     type Payload =
@@ -44,7 +45,9 @@ module Payload =
                   Branch = optionalEnvVar "BUILDKITE_BRANCH"
                   CommitSha = optionalEnvVar "BUILDKITE_COMMIT"
                   Message = optionalEnvVar "BUILDKITE_MESSAGE"
-                  Url = optionalEnvVar "BUILDKITE_BUILD_URL" }
+                  Url = optionalEnvVar "BUILDKITE_BUILD_URL"
+                  Version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString()
+                  Collector = "dotnet-buildkite-test-collector" }
             )
         elif Option.isSome (optionalEnvVar "GITHUB_ACTION") then
             Some(
@@ -66,7 +69,10 @@ module Payload =
                             "https://github.com/%s/actions/run/%s"
                             (getEnvVar "GITHUB_REPOSITORY")
                             (getEnvVar "GITHUB_RUN_ID")
-                    ) }
+                    )
+                  Version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString()
+                  Collector = "dotnet-buildkite-test-collector"
+                }
             )
         elif Option.isSome (optionalEnvVar "CIRCLE_BUILD_NUM") then
             Some(
@@ -77,7 +83,9 @@ module Payload =
                   Branch = optionalEnvVar "CIRCLE_BRANCH"
                   CommitSha = optionalEnvVar "CIRCLE_SHA1"
                   Message = None
-                  Url = optionalEnvVar "CIRCLE_BUILD_URL" }
+                  Url = optionalEnvVar "CIRCLE_BUILD_URL" 
+                  Version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString()
+                  Collector = "dotnet-buildkite-test-collector" }
             )
         elif Option.isSome (optionalEnvVar "CI") then
             Some(
@@ -88,7 +96,9 @@ module Payload =
                   Branch = None
                   CommitSha = None
                   Message = None
-                  Url = None }
+                  Url = None 
+                  Version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString()
+                  Collector = "dotnet-buildkite-test-collector" }
             )
         else
             None
@@ -148,11 +158,14 @@ module Payload =
         Map [
           ("CI", env.Ci :> obj)
           ("key", env.Key :> obj)
+          ("collector", env.Collector :> obj)
+          ("version", env.Version :> obj)
         ]
         |> maybeAppend "number" env.Number
         |> maybeAppend "branch" env.Branch
         |> maybeAppend "commit_sha" env.CommitSha
         |> maybeAppend "url" env.Url
+
 
     let dataAsJson (payload: Payload) : Map<string, obj> list =
         payload.Data
