@@ -148,7 +148,7 @@ let genericEmptyPayload () =
     Payload.Init(Some(getEnvVarFactory env)).Value
 
 let fakeTest () =
-    TestData.Init(Guid.NewGuid.ToString(), Some("scope"), Some("name"), "identifier", Some "location", Some "fileName")
+    TestData.Init(Guid.NewGuid.ToString(), Some("scope"), Some("name"), Some "location", Some "fileName")
 
 [<Fact>]
 let ``AddTestResult adds a TestResult.Test to the Collection`` () =

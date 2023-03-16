@@ -7,7 +7,7 @@ open Buildkite.TestAnalytics.Common
 let rand = Random()
 
 let fakeTest () =
-    TestData.Init(Guid.NewGuid.ToString(), Some("scope"), Some("name"), "identifier", Some "location", Some "fileName")
+    TestData.Init(Guid.NewGuid.ToString(), Some("scope"), Some("name"), Some "location", Some "fileName")
 
 let fakeSpan () =
     Tracing.Init(Tracing.Section.Sql, rand.Next(1000), None, None, None)
@@ -17,19 +17,17 @@ let ``Init creates a new test`` () =
     let id = Guid.NewGuid().ToString()
     let scope = "Buildkite.TestAnalytics.Tests"
     let name = "Init creates a new test"
-    let identifier = "Buildkite.TestAnalytics.TestDataTests.Init creates a new test"
     let location = "Buildkite.TestAnalytics.TestDataTests/TestDataTests.fs: line 8"
     let fileName = "TestDataTests.fs"
 
     let testData =
-        TestData.Init(id, Some(scope), Some(name), identifier, Some(location), Some(fileName))
+        TestData.Init(id, Some(scope), Some(name), Some(location), Some(fileName))
 
     let now = Timing.now ()
 
     Assert.Equal(testData.Id, id)
     Assert.Equal(testData.Scope, Some(scope))
     Assert.Equal(testData.Name, Some(name))
-    Assert.Equal(testData.Identifier, identifier)
     Assert.Equal(testData.Location, Some(location))
     Assert.Equal(testData.FileName, Some(fileName))
     Assert.InRange(testData.StartAt, now - 5, now + 5)
@@ -70,7 +68,6 @@ let ``AsJson converts the test into a dict`` () =
     Assert.Equal(json["id"], test.Id)
     Assert.Equal(json["scope"], test.Scope.Value)
     Assert.Equal(json["name"], test.Name.Value)
-    Assert.Equal(json["identifier"], test.Identifier)
     Assert.Equal(json["result"], "unknown")
 
     let test = TestData.Passed(test)

@@ -33,11 +33,10 @@ module Sink =
           | :? Sdk.TestStarting as test ->
             let testCollectoinUuid = test.TestCollection.UniqueID.ToString("D")
             let testCaseUuid = testIdToUuid(test.TestCase.UniqueID)
-            let identifier = testCollectoinUuid + ":" + testCaseUuid
             let (location, fileName) = match test.TestCase.SourceInformation with
                                         | null -> (None, None)
                                         | source -> (Some(source.FileName + ":" + source.LineNumber.ToString()), Some(source.FileName))
-            let testData = TestData.Init(testCaseUuid, Some(test.TestCollection.DisplayName), Some(test.Test.DisplayName), identifier, location, fileName)
+            let testData = TestData.Init(testCaseUuid, Some(test.TestCollection.DisplayName), Some(test.Test.DisplayName), location, fileName)
             inFlight <- Map.add test.TestCase.UniqueID testData inFlight
             ()
           | :? Sdk.TestPassed as test ->

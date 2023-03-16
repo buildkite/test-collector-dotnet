@@ -14,7 +14,6 @@ module TestData =
         { Id: string
           Scope: string option
           Name: string option
-          Identifier: string
           Location: string option
           FileName: string option
           Result: TestResult
@@ -30,8 +29,6 @@ module TestData =
     /// <param name="scope">The parent context under which the test is located -
     /// in our case usually the test class</param>
     /// <param name="name">The human-readable name of the test</param>
-    /// <param name="identifier">A unique identifier for the test. If your test
-    /// runner supports it, use the identifier needed to rerun this test</param>
     /// <param name="location">The file and line number where the test
     /// originates, separated by a colon (:)</param>
     /// <param name="fileName">The file where the test originates</param>
@@ -40,14 +37,12 @@ module TestData =
             id: string,
             scope: string option,
             name: string option,
-            identifier: string,
             location: string option,
             fileName: string option
         ) : Test =
         { Id = id
           Scope = scope
           Name = name
-          Identifier = identifier
           Location = location
           FileName = fileName
           Result = Unknown
@@ -131,7 +126,6 @@ module TestData =
 
         let attrs =
             [ ("id", test.Id :> obj)
-              ("identifier", test.Identifier :> obj)
               ("history", history :> obj) ]
 
         let attrs = if Option.isSome(test.Scope) then
