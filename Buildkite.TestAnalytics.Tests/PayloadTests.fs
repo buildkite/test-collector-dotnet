@@ -49,7 +49,7 @@ let ``when it detects a Buildkite CI environment it returns an empty payload`` (
     Assert.Equal(runEnv.CommitSha, Some(env.["BUILDKITE_COMMIT"]))
     Assert.Equal(runEnv.Message, Some(env.["BUILDKITE_MESSAGE"]))
     Assert.Equal(runEnv.Url, Some(env.["BUILDKITE_BUILD_URL"]))
-    Assert.Equal(runEnv.Version, "0.1.2.0")
+    Assert.Equal(runEnv.Version, "0.1.3.0")
     Assert.Equal(runEnv.Collector, "dotnet-buildkite-test-collector")
 
 
@@ -85,7 +85,7 @@ let ``when it detects a Github Actions CI environment it returns an empty payloa
     Assert.Equal(runEnv.Branch, Some(env.["GITHUB_REF"]))
     Assert.Equal(runEnv.CommitSha, Some(env.["GITHUB_SHA"]))
     Assert.Equal(runEnv.Message, None)
-    Assert.Equal(runEnv.Version, "0.1.2.0")
+    Assert.Equal(runEnv.Version, "0.1.3.0")
     Assert.Equal(runEnv.Collector, "dotnet-buildkite-test-collector")
     Assert.Equal(
         runEnv.Url,
@@ -118,7 +118,7 @@ let ``when it detects a Circle CI environment it returns an empty payload`` () =
     Assert.Equal(runEnv.CommitSha, Some(env.["CIRCLE_SHA1"]))
     Assert.Equal(runEnv.Message, None)
     Assert.Equal(runEnv.Url, Some "https://example.test/circle")
-    Assert.Equal(runEnv.Version, "0.1.2.0")
+    Assert.Equal(runEnv.Version, "0.1.3.0")
     Assert.Equal(runEnv.Collector, "dotnet-buildkite-test-collector")
 [<Fact>]
 let ``when it detects a generic CI environment it returns an empty payload`` () =
@@ -141,7 +141,7 @@ let ``when it detects a generic CI environment it returns an empty payload`` () 
     Assert.Same(runEnv.CommitSha, None)
     Assert.Same(runEnv.Message, None)
     Assert.Same(runEnv.Url, None)
-    Assert.Equal(runEnv.Version, "0.1.2.0")
+    Assert.Equal(runEnv.Version, "0.1.3.0")
     Assert.Equal(runEnv.Collector, "dotnet-buildkite-test-collector")
 let genericEmptyPayload () =
     let env = Map [ ("CI", "true") ]
