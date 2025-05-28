@@ -7,7 +7,7 @@
     <Description>The official .NET adapter for Buildkite Test Analytics which collects information about your tests: XUnit integration</Description>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageId>Buildkite.TestAnalytics.Xunit</PackageId>
+    <PackageId>Buildkite.TestAnalytics.Xunit.reporters</PackageId>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/buildkite/test-collector-dotnet</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>

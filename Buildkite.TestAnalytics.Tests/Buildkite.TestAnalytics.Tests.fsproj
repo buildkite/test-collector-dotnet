@@ -26,7 +26,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Buildkite.TestAnalytics.Common\Buildkite.TestAnalytics.Common.fsproj" />
-    <ProjectReference Include="..\Buildkite.TestAnalytics.Xunit\Buildkite.TestAnalytics.Xunit.fsproj" />
+    <ProjectReference Include="..\Buildkite.TestAnalytics.Xunit.reporters\Buildkite.TestAnalytics.Xunit.reporters.fsproj" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="xunit.runner.json" CopyToOutputDirectory="PreserveNewest" />
