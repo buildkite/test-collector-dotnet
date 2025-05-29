@@ -14,7 +14,7 @@ Useful resources for developing collectors include the [Buildkite Test Analytics
 
 ## 👩‍💻 Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/buildkite/test-collector-python
+Bug reports and pull requests are welcome on GitHub at https://github.com/buildkite/test-collector-dotnet
 
 ## 🚀 Releasing
 

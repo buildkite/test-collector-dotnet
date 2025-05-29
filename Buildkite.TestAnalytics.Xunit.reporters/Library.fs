@@ -1,4 +1,4 @@
-﻿namespace Buildkite.TestAnalytics.Xunit
+﻿namespace Buildkite.TestAnalytics.Xunit.reporters
 
 /// The Xunit plugin for Buildkite Test Analytics
 module Sink =
