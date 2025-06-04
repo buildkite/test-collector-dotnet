@@ -13,12 +13,6 @@ let getEnvVarFactory (env: Map<string, string>) : (string -> string) =
 let rand = Random()
 
 [<Fact>]
-let ``when it cannot detect the environment it returns none`` () =
-    let getEnvVar = getEnvVarFactory (Map [])
-    let payload = Payload.Init(Some getEnvVar)
-    Assert.Same(payload, None)
-
-[<Fact>]
 let ``when it detects a Buildkite CI environment it returns an empty payload`` () =
     let buildId = Guid.NewGuid.ToString()
 
@@ -122,7 +116,7 @@ let ``when it detects a Circle CI environment it returns an empty payload`` () =
     Assert.Equal(runEnv.Collector, "dotnet-buildkite-test-collector")
 [<Fact>]
 let ``when it detects a generic CI environment it returns an empty payload`` () =
-    let env = Map [ ("CI", "true") ]
+    let env = Map []
 
     let payload = Payload.Init(Some(getEnvVarFactory env))
     Assert.True(Option.isSome payload)
@@ -144,7 +138,7 @@ let ``when it detects a generic CI environment it returns an empty payload`` () 
     Assert.Equal(runEnv.Version, "0.1.3.0")
     Assert.Equal(runEnv.Collector, "dotnet-buildkite-test-collector")
 let genericEmptyPayload () =
-    let env = Map [ ("CI", "true") ]
+    let env = Map []
     Payload.Init(Some(getEnvVarFactory env)).Value
 
 let fakeTest () =
