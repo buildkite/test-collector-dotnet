@@ -87,7 +87,7 @@ module Payload =
                   Version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString()
                   Collector = "dotnet-buildkite-test-collector" }
             )
-        elif Option.isSome (optionalEnvVar "CI") then
+        else
             Some(
                 { Ci = "generic"
                   Key = Guid.NewGuid().ToString()
@@ -100,8 +100,6 @@ module Payload =
                   Version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString()
                   Collector = "dotnet-buildkite-test-collector" }
             )
-        else
-            None
 
     /// <summary>(maybe) Initialise a new empty Payload. Attempts to to detect
     /// the CI environment which the code is running in - if said detection

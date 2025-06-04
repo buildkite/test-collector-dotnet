@@ -38,7 +38,7 @@ module Api =
 
 
             if response.IsSuccessStatusCode = false then
-                Printf.eprintfn $"Posting analytics results to Buildkite API failed: {response.StatusCode}"
+                Printf.eprintfn $"Posting execution results to Buildkite API failed: {response.StatusCode}"
         }
 
     /// <summary>Submits a payload to the Buildkite API.</summary>
@@ -52,14 +52,17 @@ module Api =
         let _ = client.DefaultRequestHeaders.Authorization <- new AuthenticationHeaderValue("Token", config.apiToken)
         let payloads = Payload.IntoBatches(payload, config.batchSize)
 
-        printf "Sending test analytics data to Buildkite..."
+        if String.IsNullOrWhiteSpace config.apiToken then
+          printf "Skipping sending test execution data to Buildkite, BUILDKITE_ANALYTICS_TOKEN is not set."
+        else
+          printf "Sending test execution data to Buildkite..."
 
-        let task = task {
-            for payload in payloads do
-                let task = submitBatch (payload, client)
-                task.Wait()
-                ()
-        }
-        task.Wait()
+          let task = task {
+              for payload in payloads do
+                  let task = submitBatch (payload, client)
+                  task.Wait()
+                  ()
+          }
+          task.Wait()
 
-        printfn " done."
+          printfn " done."
