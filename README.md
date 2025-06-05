@@ -11,10 +11,10 @@ The official .NET adapter for [Buildkite Test Analytics](https://buildkite.com/t
 
 1. [Create a test suite](https://buildkite.com/docs/test-analytics), and copy the API token that it gives you.
 
-2. Add `Buildkite.TestAnalytics.Xunit` to your list of dependencies in your Xunit test project:
+2. Add `Buildkite.TestAnalytics.Xunit.reporters` to your list of dependencies in your Xunit test project:
 
 ```sh
-$ dotnet add package Buildkite.TestAnalytics.Xunit
+$ dotnet add package Buildkite.TestAnalytics.Xunit.reporters
 ```
 
 3. Set up your API token
